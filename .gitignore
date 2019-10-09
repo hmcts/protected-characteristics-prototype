@@ -2,6 +2,10 @@
 usage-data-config.json
 # ignore extension SCSS because it's dynamically generated
 lib/extensions/_extensions.scss
+#JHS 091019 ignore other .env file
+app/views/pcq-v1/*
+app/views/index2.html
+env-variables.env
 .env
 .sass-cache
 .DS_Store

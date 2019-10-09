@@ -11,7 +11,8 @@ const sessionInMemory = require('express-session')
 const cookieParser = require('cookie-parser')
 
 // Run before other code to make sure variables from .env are available
-dotenv.config()
+// JHS 091019 use a different file for dotenv, instead of .env
+dotenv.config({path: './env-variables.env'})
 
 // Local dependencies
 const middleware = [
@@ -60,6 +61,12 @@ var useAutoStoreData = process.env.USE_AUTO_STORE_DATA || config.useAutoStoreDat
 var useCookieSessionStore = process.env.USE_COOKIE_SESSION_STORE || config.useCookieSessionStore
 var useHttps = process.env.USE_HTTPS || config.useHttps
 var gtmId = process.env.GOOGLE_TAG_MANAGER_TRACKING_ID
+
+//JHS 091019 set up user defined configuration variables
+var serviceReturnPage = process.env.SERVICE_RETURN_PAGE || config.serviceReturnPage
+var serviceUserAction = process.env.SERVICE_USER_ACTION || config.serviceUserAction
+var userType = process.env.SERVUCE_USER_TYPE || config.serviceUserType
+
 
 useHttps = useHttps.toLowerCase()
 
@@ -178,6 +185,12 @@ app.locals.cookieText = config.cookieText
 app.locals.promoMode = promoMode
 app.locals.releaseVersion = 'v' + releaseVersion
 app.locals.serviceName = config.serviceName
+
+// JHS 091019 add variables for originating service
+app.locals.serviceUserAction = config.serviceUserAction
+app.locals.serviceUserType = config.serviceUserType
+
+
 // extensionConfig sets up variables used to add the scripts and stylesheets to each page.
 app.locals.extensionConfig = extensions.getAppConfig()
 

@@ -1,24 +1,67 @@
 
 {% extends "layout.html" %}
 
+{% from "govuk/components/input/macro.njk" import govukInput %}
+
+
 {% block pageTitle %}
-  Divorce Prototype
+  Equality questions
 {% endblock %}
 
 {% block content %}
 
+{{serviceUserAction}}
+
+{{serviceName}}
+
+
+{{ govukSelect({
+  id: "Page 1",
+  name: "page1",
+  label: {
+    text: "Select page 1"
+  },
+  items: [
+    {
+      value: "",
+      text: "Date of Birth"
+    },
+    {
+      value: "updated",
+      text: "Sex"
+    },
+    {
+      value: "views",
+      text: "Gender"
+    },
+    {
+      value: "comments",
+      text: "Ethnicity"
+    }
+  ]
+}) }}
+
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">Protected Characteristics Questions Divorce</h1>
+      <h1 class="govuk-heading-xl">Protected Characteristics Questions in Divorce</h1>
 
-      <h2 class="govuk-heading-l">Select the version you want</h2>
-
-
+        <h2 class="govuk-heading-m">Individual Question Pages</h2>
+        <p class="govuk-body">To view individual questions please select from the list below</p>
+        
         <ul class="govuk-list govuk-list--bullet">
 
-        <li><a href="pcq-v1/index.html">version 1 user testing 27 August 2019 to 28 August 2019</a></li>
-        <li><a href="pcq-v2/index.html">version 2 user testing 17 September 2019 to 18 September</a></li>
-
+        <li><a href="introduction.html">Introduction for PCQs</a></li>   
+        <li><a href="language.html">English language</a></li>
+        <li><a href="age.html">Age</a></li>
+        <li><a href="sex.html">Sex</a></li>
+        <li><a href="gender.html">Gender</a></li>
+        <li><a href="sexual-orientation.html">Sexual orientation</a></li>
+        <li><a href="marriage-or-civil-partnership">Marriage or civil partnership</a></li>
+        <li><a href="ethnicity.html">Ethnicity</a></li>
+        <li><a href="religion.html">Religion</a></li>
+        <li><a href="disability.html">Disability</a></li>
+        <li><a href="pregnancy">Pregnancy</a></li>
+        <li><a href="thank-you.html">Thank you page</a></li>
 
       </ul>
     </div>
