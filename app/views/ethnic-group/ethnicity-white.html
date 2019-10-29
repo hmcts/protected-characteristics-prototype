@@ -9,13 +9,8 @@
 
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-
-
-     {% if data['respondent'] == 'true' %} 
-        <form action="../religion?respondent=true&" method="post" novalidate>  
-      {% else %}
-        <form action="../religion?respondent=false&" method="post" novalidate>
-      {% endif %}  
+      
+      <form action="/ethnicity-type-next-q" method="post" novalidate>
 
       {% set whiteOtherHtml %}
         {{ govukInput({
@@ -23,6 +18,7 @@
           name: "ethnicity-white-other",
           classes: "govuk-!-width-two-thirds",
           label: {
+            value: "your-white-background",
             text: "Your White background (optional)"
           }
         }) }}
@@ -40,15 +36,19 @@
           },
           items: [
             {
+              value: "british-english-northern-irish-scottish-or-Welsh",
               text: "British, English, Northern Irish, Scottish, or Welsh"
             },
             {
+              value: "irish",
               text: "Irish"
             },
             {
+              value: "irish-traveller-or-gypsy",
               text: "Irish Traveller or Gypsy"
             },
             {
+              value: "another-whitebbackground",
               text: "Another White background",
               conditional: {
                 html: whiteOtherHtml

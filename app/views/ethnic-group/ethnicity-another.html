@@ -10,13 +10,7 @@
     <div class="govuk-grid-column-two-thirds">
 
 
-      {% if data['respondent'] == 'true' %} 
-        <form action="../religion?respondent=true&" method="post" novalidate>  
-      {% else %}
-        <form action="../religion?respondent=false&" method="post" novalidate>
-      {% endif %}  
-
-
+      <form action="../religion" method="post" novalidate>  
 
       {% set otherOtherHtml %}
         {{ govukInput({
@@ -24,6 +18,7 @@
           name: "ethnicity-mixed-other",
           classes: "govuk-!-width-two-thirds",
           label: {
+            value: "your-ethnic-background",
             text: "Your ethnic background (optional)"
           }
         }) }}
@@ -41,9 +36,11 @@
           },
         items: [
           {
+            value: "arab",
             text: "Arab"
           },
           {
+              value: "another-ethnic-background",
             text: "Another ethnic background",
             conditional: {
               html: otherOtherHtml

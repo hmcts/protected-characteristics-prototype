@@ -7,11 +7,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% if data['respondent'] == 'true' %} 
-        <form action="/respondent-language" method="post" novalidate>  
-      {% else %}
-        <form action="/applicant-language" method="post" novalidate>
-      {% endif %}
+      <form action="/language-next-q" method="post" novalidate>
 
         {% set otherOtherHtml %}
         {{ govukInput({
@@ -19,6 +15,7 @@
           name: "english-language-other",
           classes: "govuk-!-width-two-thirds",
           label: {
+            value: "your-main-language",
             text: "Enter your main language (including British Sign Language)"
           }
         }) }}
@@ -38,11 +35,11 @@
           items: [
         
             {
-              value: "English or Welsh",
+              value: "english-or-welsh",
               text: "English or Welsh"
             },
             {
-              value: "Other",
+              value: "other",
               text: "Other",
               conditional: {
               html: otherOtherHtml
@@ -52,7 +49,7 @@
               divider: "or"
             },
             {
-              value: "Prefer not to say",
+              value: "prefer-not-to-say",
               text: "Prefer not to say"
             }
           ]

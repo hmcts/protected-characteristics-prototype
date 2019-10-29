@@ -13,7 +13,7 @@ const cookieParser = require('cookie-parser')
 // Run before other code to make sure variables from .env are available
 // JHS 091019 use a different file for dotenv, instead of .env
 dotenv.config({path: './env-variables.env'})
-
+// dotenv.config()
 // Local dependencies
 const middleware = [
   require('./lib/middleware/authentication/authentication.js'),
@@ -63,9 +63,17 @@ var useHttps = process.env.USE_HTTPS || config.useHttps
 var gtmId = process.env.GOOGLE_TAG_MANAGER_TRACKING_ID
 
 //JHS 091019 set up user defined configuration variables
-var serviceReturnPage = process.env.SERVICE_RETURN_PAGE || config.serviceReturnPage
+// console.log('config.serviceReturnUrl ' + config.serviceReturnUrl)
+// console.log('SERVICE_RETURN_URL ' + process.env.SERVICE_RETURN_URL)
+var serviceReturnUrl1 = process.env.SERVICE_RETURN_URL_1 || config.serviceReturnUrl1
+var serviceReturnUrl2 = process.env.SERVICE_RETURN_URL_2 || config.serviceReturnUrl2
 var serviceUserAction = process.env.SERVICE_USER_ACTION || config.serviceUserAction
-var userType = process.env.SERVUCE_USER_TYPE || config.serviceUserType
+var serviceUserType = process.env.SERVICE_USER_TYPE || config.serviceUserType
+// JHS 131019 make questionOrder global so can access in routes
+questionOrder = config.questionOrder
+
+console.log('config.serviceUserType ' + config.serviceUserType)
+console.log('process.env.SERVICE_USER_TYPE ' + process.env.SERVICE_USER_TYPE)
 
 
 useHttps = useHttps.toLowerCase()
@@ -187,8 +195,28 @@ app.locals.releaseVersion = 'v' + releaseVersion
 app.locals.serviceName = config.serviceName
 
 // JHS 091019 add variables for originating service
-app.locals.serviceUserAction = config.serviceUserAction
-app.locals.serviceUserType = config.serviceUserType
+app.locals.questionOrder = questionOrder
+app.locals.serviceUserAction = serviceUserAction
+app.locals.serviceUserType = serviceUserType
+
+// JHS 131019 use the serviceUserType to determeine which return page of the originating service should be called
+app.locals.serviceReturnUrl = chooseUrl()
+function chooseUrl() {
+  console.log('serviceUserType ' + serviceUserType)
+
+  if (serviceUserType = "respondent") {
+
+    return serviceReturnUrl1
+  }
+  else {
+    return serviceReturnUrl2
+  }
+}
+console.log('app.locals.serviceReturnUrl ' + app.locals.serviceReturnUrl)
+console.log('config.serviceUserAction ' + config.serviceUserAction)
+console.log('config.serviceUserType ' + app.locals.serviceReturnUrl)
+console.log('questionOrder ' + questionOrder)
+
 
 
 // extensionConfig sets up variables used to add the scripts and stylesheets to each page.

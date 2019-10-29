@@ -8,12 +8,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-    {% if data['respondent'] == 'true' %} 
-        <form action="./sexual-orientation?respondent=true" method="post" novalidate>  
-      {% else %}
-        <form action="./sexual-orientation?respondent=false" method="post" novalidate>
-      {% endif %}
-
+      <form action="/gender-next-q" method="post" novalidate>
         
         {% set otherOtherHtml %}
         {{ govukInput({
@@ -21,6 +16,7 @@
           name: "gender-other",
           classes: "govuk-!-width-two-thirds",
           label: {
+            value: "your-gender",
             text: "Please enter your gender"
           }
         }) }}

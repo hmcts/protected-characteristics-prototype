@@ -7,12 +7,7 @@
 {% block content %}
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
-      {% if data['respondent'] == 'true' %} 
-        <form action="/respondent-ethnicity-answer" method="post" novalidate>
-      {% else %}
-        <form action="/applicant-ethnicity-answer" method="post" novalidate>
-
-      {% endif %}
+      <form action="/ethnicity-next-q" method="post" novalidate>
 
       {{ govukRadios({
         idPrefix: "ethnic-group",
@@ -26,7 +21,7 @@
           },
         items: [
           {
-              value: "Asian or Asian British",
+              value: "asian-or-asian-british",
               text: "Asian or Asian British",
               label: {
                 classes: 'govuk-label--s'
@@ -36,7 +31,7 @@
               }
             },
             {
-              value: "Black, African, Black British or Caribbean",
+              value: "black-african-black-british-or-caribbean",
               text: "Black, African, Black British or Caribbean",
               label: {
                 classes: 'govuk-label--s'
@@ -46,7 +41,7 @@
               }
             },
              {
-              value: "Mixed or multiple ethnic groups",
+              value: "mixed-or-multiple-ethnic-groups",
               text: "Mixed or multiple ethnic groups",
               label: {
                 classes: 'govuk-label--s'
@@ -56,7 +51,7 @@
               }
             },
             {
-              value: "White",
+              value: "white",
               text: "White",
               label: {
                 classes: 'govuk-label--s'
@@ -66,7 +61,7 @@
               }
             },
             {
-              value: "Another ethnic group",
+              value: "another-ethnic-group",
               text: "Another ethnic group",
               label: {
                 classes: 'govuk-label--s'
@@ -79,7 +74,7 @@
               divider: "or"
             },
             {
-              value: "Prefer not to say",
+              value: "prefer-not-to-say",
               text: "Prefer not to say",
               label: {
                 classes: 'govuk-label'

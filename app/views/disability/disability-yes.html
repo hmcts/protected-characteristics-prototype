@@ -8,11 +8,7 @@
   <div class="govuk-grid-row">
     <div class="govuk-grid-column-two-thirds">
 
-     {% if data['respondent'] == 'true' %} 
-       <form action="/respondent-disability-details" method="post" novalidate>
-      {% else %}
-        <form action="/applicant-disability-details" method="post" novalidate>
-      {% endif %}
+       <form action="/disability-yes-next-q" method="post" novalidate>
 
         {{ govukRadios({
           idPrefix: "disability-yes",
@@ -27,15 +23,15 @@
         
         items: [
             {
-              value: "Yes, limited a little",
+              value: "yes-limited-a-little",
               text: "Yes, limited a little"
             },
             {
-              value: "Yes, limited a lot",
+              value: "yes-limited-a-lot",
               text: "Yes, limited a lot"
             },
             {
-              value: "Not at all",
+              value: "not-at-all",
               text: "Not at all"
             },
             {

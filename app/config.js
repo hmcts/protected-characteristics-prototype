@@ -4,22 +4,38 @@
 
 module.exports = {
 
-// Set the order of the questions 
-// questionOrder = ['age.html','language.html','sex.html','gender.html','sexual-orientation.html','marriage.html','ethnicity.html','religion.html','disability.html','pregnant.html'],
+  // Set the order of the questions, 
+  // comment out any not required, 
+  // keep lower case as these are the file names
+  // Leave submit as the last page
 
-// Set values for the originating service
+  questionOrder: [
+  'age',
+  'language',
+  'sex',
+  'gender',
+  'sexual-orientation',
+  'marriage',
+  'ethnicity',
+  'religion',
+  'disability',
+  'pregnancy',
+  'submit'],
 
-// Set the type of user e.g. appellant, applicant, respondent, defendant. This will determine the text on the pages, this matches the data passed into the PCQs
-serviceUserType: 'respondent',
+  // Set values for the originating service
 
-// Set the type of user action e.g. application, response, appeal. This will determine the text on the pages
-serviceUserAction:'response',
+  // Set the type of user e.g. appellant, applicant, respondent, defendant. 
+  serviceUserType: 'respondent',
 
-// Set the return page, this will determine the destination when returning to the originating service
-serviceReturnPage: 'https://div-pcq-prototype.herokuapp.com/check-your-answers',
+  // Set the type of user action e.g. application, response, appeal. This will determine the text on the wrapper pages
+  serviceUserAction:'response',
+
+  // Set the return page, this will determine the destination when returning to the originating service
+  // if there are options based on the user type these are set in server.js
+  serviceReturnUrl1: 'https://div-pcq-prototype.herokuapp.com/check-your-answers?respondent', // e.g. applicant
+  serviceReturnUrl2: 'https://div-pcq-prototype.herokuapp.com/check-your-answers?applicant', // e.g. respondent
 
 
- 
   // Service name used in header. Eg: 'Renew your passport'
   serviceName: 'Equality and diversity questions',
 
