@@ -10,7 +10,6 @@ module.exports = {
   // Leave submit as the last page
 
   questionOrder: [
-  'age',
   'language',
   'sex',
   'gender',
@@ -22,18 +21,19 @@ module.exports = {
   'pregnancy',
   'submit'],
 
-  // Set values for the originating service
+  // Set values for the originating service, these are used if the process.env are not set 
 
   // Set the type of user e.g. appellant, applicant, respondent, defendant. 
-  serviceUserType: 'respondent',
+  serviceUserTypeDev: 'respondent',
 
   // Set the type of user action e.g. application, response, appeal. This will determine the text on the wrapper pages
-  serviceUserAction:'response',
+  serviceUserActionDev:'response',
 
   // Set the return page, this will determine the destination when returning to the originating service
-  // if there are options based on the user type these are set in server.js
-  serviceReturnUrl1: 'https://div-pcq-prototype.herokuapp.com/check-your-answers?respondent', // e.g. applicant
-  serviceReturnUrl2: 'https://div-pcq-prototype.herokuapp.com/check-your-answers?applicant', // e.g. respondent
+  // if there are options based on the serviceUserType the correct url is selected in server.js. 
+
+  serviceReturnUrl1Dev: 'check-your-answers?applicant',
+  serviceReturnUrl2Dev: 'check-your-answers?respondent',
 
 
   // Service name used in header. Eg: 'Renew your passport'

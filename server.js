@@ -63,18 +63,22 @@ var useHttps = process.env.USE_HTTPS || config.useHttps
 var gtmId = process.env.GOOGLE_TAG_MANAGER_TRACKING_ID
 
 //JHS 091019 set up user defined configuration variables
-// console.log('config.serviceReturnUrl ' + config.serviceReturnUrl)
-// console.log('SERVICE_RETURN_URL ' + process.env.SERVICE_RETURN_URL)
-var serviceReturnUrl1 = process.env.SERVICE_RETURN_URL_1 || config.serviceReturnUrl1
-var serviceReturnUrl2 = process.env.SERVICE_RETURN_URL_2 || config.serviceReturnUrl2
-var serviceUserAction = process.env.SERVICE_USER_ACTION || config.serviceUserAction
-var serviceUserType = process.env.SERVICE_USER_TYPE || config.serviceUserType
-// JHS 131019 make questionOrder global so can access in routes
+
+var serviceReturnUrl1 = process.env.SERVICE_RETURN_URL_1 || config.serviceReturnUrl1Dev
+var serviceReturnUrl2 = process.env.SERVICE_RETURN_URL_2 || config.serviceReturnUrl2Dev
+var serviceUserAction = process.env.SERVICE_USER_ACTION || config.serviceUserActionDev
+var serviceUserType = process.env.SERVICE_USER_TYPE || config.serviceUserTypeDev
+
+console.log('process.env.SERVICE_RETURN_URL_1 ' + process.env.SERVICE_RETURN_URL_1)
+console.log('process.env.SERVICE_RETURN_URL_2 ' + process.env.SERVICE_RETURN_URL_2)
+console.log('serviceReturnUrl 1 ' + serviceReturnUrl1)
+console.log('serviceReturnUrl 2 ' + serviceReturnUrl2)
+
+
+
+// JHS 131019 make questionOrder global so can access it in routes
+
 questionOrder = config.questionOrder
-
-console.log('config.serviceUserType ' + config.serviceUserType)
-console.log('process.env.SERVICE_USER_TYPE ' + process.env.SERVICE_USER_TYPE)
-
 
 useHttps = useHttps.toLowerCase()
 
@@ -202,22 +206,16 @@ app.locals.serviceUserType = serviceUserType
 // JHS 131019 use the serviceUserType to determeine which return page of the originating service should be called
 app.locals.serviceReturnUrl = chooseUrl()
 function chooseUrl() {
-  console.log('serviceUserType ' + serviceUserType)
 
-  if (serviceUserType = "respondent") {
+  if (app.locals.serviceUserType == "respondent") {
+
+    return serviceReturnUrl2
+  }
+  else {
 
     return serviceReturnUrl1
   }
-  else {
-    return serviceReturnUrl2
-  }
 }
-console.log('app.locals.serviceReturnUrl ' + app.locals.serviceReturnUrl)
-console.log('config.serviceUserAction ' + config.serviceUserAction)
-console.log('config.serviceUserType ' + app.locals.serviceReturnUrl)
-console.log('questionOrder ' + questionOrder)
-
-
 
 // extensionConfig sets up variables used to add the scripts and stylesheets to each page.
 app.locals.extensionConfig = extensions.getAppConfig()

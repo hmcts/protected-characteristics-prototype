@@ -9,62 +9,35 @@
 {% endblock %}
 
 {% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <h1 class="govuk-heading-xl">Protected Characteristics Questions</h1>
 
-{{serviceUserAction}}
+      <h2 class="govuk-heading-m">Individual Question Pages</h2>
+      <p class="govuk">The user type is set to <span style="color:blue">{{serviceUserType}}</span></p>
+      <p class="govuk">The user action is set to <span style="color:blue">{{serviceUserAction}}</span></p>
+      <p class="govuk">The service return url is set to <span style="color:blue">{{serviceReturnUrl}}</span></p>      
+      <p class="govuk-body">The questions will be asked in the following order <span style="color:blue">{{questionOrder}}</span></p>
 
-{{serviceName}}
-
-
-{{ govukSelect({
-  id: "Page 1",
-  name: "page1",
-  label: {
-    text: "Select page 1"
-  },
-  items: [
-    {
-      value: "",
-      text: "Date of Birth"
-    },
-    {
-      value: "updated",
-      text: "Sex"
-    },
-    {
-      value: "views",
-      text: "Gender"
-    },
-    {
-      value: "comments",
-      text: "Ethnicity"
-    }
-  ]
-}) }}
-
-  <div class="govuk-grid-row">
-    <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-xl">Protected Characteristics Questions in Divorce</h1>
-
-        <h2 class="govuk-heading-m">Individual Question Pages</h2>
-        <p class="govuk-body">To view individual questions please select from the list below</p>
-        
-        <ul class="govuk-list govuk-list--bullet">
+      <p class="govuk-body">To view individual questions please select from the list below</p>
+      
+      <ul class="govuk-list govuk-list--bullet">
 
         <li><a href="introduction.html">Introduction for PCQs</a></li>   
-        <li><a href="language.html">English language</a></li>
         <li><a href="age.html">Age</a></li>
+        <li><a href="language.html">English language</a></li>
         <li><a href="sex.html">Sex</a></li>
         <li><a href="gender.html">Gender</a></li>
         <li><a href="sexual-orientation.html">Sexual orientation</a></li>
-        <li><a href="marriage-or-civil-partnership">Marriage or civil partnership</a></li>
+        <li><a href="marriage">Marriage or civil partnership</a></li>
         <li><a href="ethnicity.html">Ethnicity</a></li>
         <li><a href="religion.html">Religion</a></li>
         <li><a href="disability.html">Disability</a></li>
         <li><a href="pregnancy">Pregnancy</a></li>
-        <li><a href="thank-you.html">Thank you page</a></li>
+        <li><a href="exit.html">Final page (exit)</a></li>
 
       </ul>
-    </div>
+  </div>
 </div>
 
 {% endblock %}
