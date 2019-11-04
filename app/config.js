@@ -33,8 +33,8 @@ module.exports = {
   // Set the return page, this will determine the destination when returning to the originating service
   // if there are options based on the serviceUserType the correct url is selected in server.js. 
 
-  serviceReturnUrlA: '/config?applicant',
-  serviceReturnUrlB: '/config?defendant',
+  serviceReturnUrlA: 'https://probate-pcq-prototype.herokuapp.com/tasklist/review-and-confirm',
+  serviceReturnUrlB: '',
 
 
   // Service name used in header. Eg: 'Renew your passport'
