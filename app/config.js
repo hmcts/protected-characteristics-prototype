@@ -24,11 +24,11 @@ module.exports = {
   // Set values for the originating service, these are used if the process.env are not set 
 
   // Set the type of user e.g. appellant, applicant, respondent, defendant. 
-  serviceUserTypeA: 'applicant config',
-  serviceUserTypeB: 'respondent config',
+  serviceUserTypeA: 'applicant',
+  serviceUserTypeB: '',
 
   // Set the type of user action e.g. application, response, appeal. This will determine the text on the wrapper pages
-  serviceUserActionDev:'response',
+  serviceUserAction:'application',
 
   // Set the return page, this will determine the destination when returning to the originating service
   // if there are options based on the serviceUserType the correct url is selected in server.js. 
