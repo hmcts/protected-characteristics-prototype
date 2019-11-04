@@ -1,7 +1,52 @@
 const express = require('express')
 const router = express.Router()
+const url = require('url')
 
 // Add your routes here - above the module.exports line
+
+//JHS 301019 get the usertype parameter from the url if there isn't one use the config variable for urlUser
+
+var urlQueryUserType
+
+router.get('/introduction', function(req, res) {
+  if (req.query.userType !== undefined) {
+    if (req.app.locals.serviceUserTypeB !== null) {
+      urlQueryUserType = req.query.userType
+      console.log('req.query.userType defined ' + req.query.userType)
+      res.render('introduction')
+    }
+  }
+  else {
+    urlQueryUserType = req.app.locals.serviceUserTypeA
+    console.log('req.query.userType undefined' + req.query.userType)
+    res.render('introduction')
+  }
+  req.app.locals.serviceReturnUrl = chooseUrl()
+  console.log('req.app.locals.serviceReturnUrl ' + req.app.locals.serviceReturnUrl)
+
+  function chooseUrl() {
+    console.log('urlQueryUserType ' + urlQueryUserType)
+
+    if (urlQueryUserType == req.app.locals.serviceUserTypeB) {
+      console.log('urlQueryUserType == typeB ')
+
+      return req.app.locals.serviceReturnUrlB
+    }
+    else {
+      console.log('urlQueryUserType !== typeB ')
+
+      return req.app.locals.serviceReturnUrlA
+    }
+
+  }
+    console.log('routes serviceReturnUrl A ' + req.app.locals.serviceReturnUrlA )
+    console.log('routes serviceReturnUrl B ' + req.app.locals.serviceReturnUrlB )
+    console.log('routes serviceReturnUrl ' + req.app.locals.serviceReturnUrl )
+  })
+
+// JHS 131019 use the url query userType passed from the service to determeine which return page of the originating service should be called
+// If the url query value = user type B then use return url B otherwise use return url A as defined in heroku config variables or .env-variables or config.js
+
 
 //
 // Version 1

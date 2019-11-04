@@ -9,6 +9,7 @@ const nunjucks = require('nunjucks')
 const sessionInCookie = require('client-sessions')
 const sessionInMemory = require('express-session')
 const cookieParser = require('cookie-parser')
+const url = require('url')
 
 // Run before other code to make sure variables from .env are available
 // JHS 091019 use a different file for dotenv, instead of .env
@@ -62,19 +63,19 @@ var useCookieSessionStore = process.env.USE_COOKIE_SESSION_STORE || config.useCo
 var useHttps = process.env.USE_HTTPS || config.useHttps
 var gtmId = process.env.GOOGLE_TAG_MANAGER_TRACKING_ID
 
-//JHS 091019 set up user defined configuration variables
 
-var serviceReturnUrl1 = process.env.SERVICE_RETURN_URL_1 || config.serviceReturnUrl1Dev
-var serviceReturnUrl2 = process.env.SERVICE_RETURN_URL_2 || config.serviceReturnUrl2Dev
-var serviceUserAction = process.env.SERVICE_USER_ACTION || config.serviceUserActionDev
-var serviceUserType = process.env.SERVICE_USER_TYPE || config.serviceUserTypeDev
+//JHS 091019 set up user defined configuration variables in the following order heroku config variables, the .env-variables file and config.js 
 
-console.log('process.env.SERVICE_RETURN_URL_1 ' + process.env.SERVICE_RETURN_URL_1)
-console.log('process.env.SERVICE_RETURN_URL_2 ' + process.env.SERVICE_RETURN_URL_2)
-console.log('serviceReturnUrl 1 ' + serviceReturnUrl1)
-console.log('serviceReturnUrl 2 ' + serviceReturnUrl2)
+var serviceReturnUrlA = process.env.SERVICE_RETURN_URL_A || config.serviceReturnUrlA
+var serviceReturnUrlB = process.env.SERVICE_RETURN_URL_B || config.serviceReturnUrlB
+var serviceUserAction = process.env.SERVICE_USER_ACTION || config.serviceUserAction
+var serviceUserTypeA = process.env.SERVICE_USER_TYPE_A || config.serviceUserTypeA
+var serviceUserTypeB = process.env.SERVICE_USER_TYPE_B || config.serviceUserTypeB
 
-
+console.log('process.env.SERVICE_RETURN_URL_A ' + process.env.SERVICE_RETURN_URL_A)
+console.log('process.env.SERVICE_RETURN_URL_B ' + process.env.SERVICE_RETURN_URL_B)
+console.log('serviceReturnUrl A ' + serviceReturnUrlA)
+console.log('serviceReturnUrl B ' + serviceReturnUrlB)
 
 // JHS 131019 make questionOrder global so can access it in routes
 
@@ -201,21 +202,10 @@ app.locals.serviceName = config.serviceName
 // JHS 091019 add variables for originating service
 app.locals.questionOrder = questionOrder
 app.locals.serviceUserAction = serviceUserAction
-app.locals.serviceUserType = serviceUserType
-
-// JHS 131019 use the serviceUserType to determeine which return page of the originating service should be called
-app.locals.serviceReturnUrl = chooseUrl()
-function chooseUrl() {
-
-  if (app.locals.serviceUserType == "respondent") {
-
-    return serviceReturnUrl2
-  }
-  else {
-
-    return serviceReturnUrl1
-  }
-}
+app.locals.serviceUserTypeA = serviceUserTypeA
+app.locals.serviceUserTypeB = serviceUserTypeB
+app.locals.serviceReturnUrlA = serviceReturnUrlA
+app.locals.serviceReturnUrlB = serviceReturnUrlB
 
 // extensionConfig sets up variables used to add the scripts and stylesheets to each page.
 app.locals.extensionConfig = extensions.getAppConfig()

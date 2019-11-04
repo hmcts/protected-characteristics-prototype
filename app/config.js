@@ -19,12 +19,13 @@ module.exports = {
   'religion',
   'disability',
   'pregnancy',
-  'submit'],
+  'exit'],
 
   // Set values for the originating service, these are used if the process.env are not set 
 
   // Set the type of user e.g. appellant, applicant, respondent, defendant. 
-  serviceUserTypeDev: 'respondent',
+  serviceUserTypeA: 'applicant config',
+  serviceUserTypeB: 'respondent config',
 
   // Set the type of user action e.g. application, response, appeal. This will determine the text on the wrapper pages
   serviceUserActionDev:'response',
@@ -32,8 +33,8 @@ module.exports = {
   // Set the return page, this will determine the destination when returning to the originating service
   // if there are options based on the serviceUserType the correct url is selected in server.js. 
 
-  serviceReturnUrl1Dev: 'check-your-answers?applicant',
-  serviceReturnUrl2Dev: 'check-your-answers?respondent',
+  serviceReturnUrlA: '/config?applicant',
+  serviceReturnUrlB: '/config?defendant',
 
 
   // Service name used in header. Eg: 'Renew your passport'
