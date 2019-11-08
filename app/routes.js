@@ -4,11 +4,12 @@ const url = require('url')
 
 // Add your routes here - above the module.exports line
 
-//JHS 301019 get the usertype parameter from the url if there isn't one use the config variable for urlUser
+//JHS 301019 get the usertype parameter from the url query string
 
 var urlQueryUserType
 
 router.get('/introduction', function(req, res) {
+// JHS 081119 if query string userType exists and a secondary URL exists then set the userType   
   if (req.query.userType !== undefined) {
     if (req.app.locals.serviceUserTypeB !== null) {
       urlQueryUserType = req.query.userType
@@ -16,11 +17,14 @@ router.get('/introduction', function(req, res) {
       res.render('introduction')
     }
   }
+// JHS 081119 if query string userType doesn't exist then use the primary URL
   else {
     urlQueryUserType = req.app.locals.serviceUserTypeA
-    console.log('req.query.userType undefined' + req.query.userType)
+    console.log('req.query.userType undefined ' + req.query.userType)
     res.render('introduction')
   }
+
+// JHS 081119 set the returnUrl based on the userType
   req.app.locals.serviceReturnUrl = chooseUrl()
   console.log('req.app.locals.serviceReturnUrl ' + req.app.locals.serviceReturnUrl)
 
