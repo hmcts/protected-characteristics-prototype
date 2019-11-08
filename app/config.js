@@ -5,11 +5,12 @@
 module.exports = {
 
   // Set the order of the questions, 
-  // comment out any not required, 
+  // remove any not required, the full list is  questionOrder: ['age','language','sex','gender','sexual-orientation','marriage','ethnicity','religion','disability','pregnancy','exit']
   // keep lower case as these are the file names
-  // Leave submit as the last page
+  // Leave exit as the last page
 
   questionOrder: [
+  'age',
   'language',
   'sex',
   'gender',
@@ -33,7 +34,7 @@ module.exports = {
   // if query string is passed this will be compared with the service userType to determine the return url
 
   serviceReturnUrlA: 'https://probate-pcq-prototype.herokuapp.com/tasklist/review-and-confirm',
-  serviceReturnUrlB: 'https://probate-pcq-prototype.herokuapp.com/tasklist/review-and-confirm-waiting',
+  serviceReturnUrlB: '',
 
 
   // Set the type of user action e.g. application, response, appeal. This will determine the text on the wrapper pages

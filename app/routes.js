@@ -98,7 +98,6 @@ router.post('/language-next-q', function (req, res) {
     res.redirect('/english-level')
   }
   else {
-    console.log('array length ' + questionOrder.length)
     for (var i = 0; i < questionOrder.length; i++) {
       if (questionOrder[i] == thisQ) {
         nextQ = questionOrder[i + 1]
@@ -117,7 +116,6 @@ router.post('/english-level-next-q', function (req, res) {
 
   var nextQ
   var thisQ = 'language'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
@@ -136,7 +134,6 @@ router.post('/sex-next-q', function (req, res) {
 
   var nextQ
   var thisQ = 'sex'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
@@ -155,7 +152,6 @@ router.post('/gender-next-q', function (req, res) {
 
   var nextQ
   var thisQ = 'gender'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
@@ -174,7 +170,6 @@ router.post('/sexual-orientation-next-q', function (req, res) {
 
   var nextQ
   var thisQ = 'sexual-orientation'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
@@ -193,7 +188,6 @@ router.post('/marriage-next-q', function (req, res) {
 
   var nextQ
   var thisQ = 'marriage'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
@@ -210,7 +204,7 @@ router.post('/marriage-next-q', function (req, res) {
 
 router.post('/ethnicity-next-q', function (req, res) {
   let ethnicGroup = req.session.data['ethnic-group']
-    console.log ('req.session.data ethnic group' + req.session.data['ethnic-group'])
+    console.log ('ethnic group' + ethnicGroup)
 
   if (ethnicGroup == "white") {
     res.redirect('/ethnic-group/ethnicity-white')
