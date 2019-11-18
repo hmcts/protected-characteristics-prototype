@@ -20,33 +20,25 @@ router.get('/introduction', function(req, res) {
 // JHS 081119 if query string userType doesn't exist then use the primary URL
   else {
     urlQueryUserType = req.app.locals.serviceUserTypeA
-    console.log('req.query.userType undefined ' + req.query.userType)
     res.render('introduction')
   }
 
 // JHS 081119 set the returnUrl based on the userType
   req.app.locals.serviceReturnUrl = chooseUrl()
-  console.log('req.app.locals.serviceReturnUrl ' + req.app.locals.serviceReturnUrl)
 
   function chooseUrl() {
-    console.log('urlQueryUserType ' + urlQueryUserType)
 
     if (urlQueryUserType == req.app.locals.serviceUserTypeB) {
-      console.log('urlQueryUserType == typeB ')
 
       return req.app.locals.serviceReturnUrlB
     }
     else {
-      console.log('urlQueryUserType !== typeB ')
 
       return req.app.locals.serviceReturnUrlA
     }
 
-  }
-    console.log('routes serviceReturnUrl A ' + req.app.locals.serviceReturnUrlA )
-    console.log('routes serviceReturnUrl B ' + req.app.locals.serviceReturnUrlB )
-    console.log('routes serviceReturnUrl ' + req.app.locals.serviceReturnUrl )
-  })
+  }  
+})
 
 // JHS 131019 use the url query userType passed from the service to determeine which return page of the originating service should be called
 // If the url query value = user type B then use return url B otherwise use return url A as defined in heroku config variables or .env-variables or config.js

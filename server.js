@@ -72,10 +72,6 @@ var serviceUserAction = process.env.SERVICE_USER_ACTION || config.serviceUserAct
 var serviceUserTypeA = process.env.SERVICE_USER_TYPE_A || config.serviceUserTypeA
 var serviceUserTypeB = process.env.SERVICE_USER_TYPE_B || config.serviceUserTypeB
 
-console.log('process.env.SERVICE_RETURN_URL_A ' + process.env.SERVICE_RETURN_URL_A)
-console.log('process.env.SERVICE_RETURN_URL_B ' + process.env.SERVICE_RETURN_URL_B)
-console.log('serviceReturnUrl A ' + serviceReturnUrlA)
-console.log('serviceReturnUrl B ' + serviceReturnUrlB)
 
 // JHS 131019 make questionOrder global so can access it in routes
 
