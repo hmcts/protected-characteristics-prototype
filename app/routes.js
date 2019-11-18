@@ -194,8 +194,6 @@ router.post('/marriage-next-q', function (req, res) {
       break
     }  
   }
-      console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
-
     res.redirect('./' + nextQ)
 
   })
@@ -219,15 +217,12 @@ router.post('/ethnicity-next-q', function (req, res) {
   } else {
     var nextQ
     var thisQ = 'ethnicity'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
     for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
       break
     }  
   }
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
-
     res.redirect('/' + nextQ)
   }
 
@@ -246,8 +241,6 @@ router.post('/ethnicity-type-next-q', function (req, res) {
       break
     }  
   }
-      console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
-
     res.redirect('./' + nextQ)
 
   })
@@ -258,15 +251,12 @@ router.post('/religion-next-q', function (req, res) {
 
   var nextQ
   var thisQ = 'religion'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
       break
     }  
   }
-      console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
-
     res.redirect('./' + nextQ)
 
   })
@@ -283,15 +273,12 @@ router.post('/disability-next-q', function (req, res) {
   } else {
     var nextQ
     var thisQ = 'disability'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
     for (var i = 0; i < questionOrder.length; i++) {
        if (questionOrder[i] == thisQ) {
         nextQ = questionOrder[i + 1]
         break
       }  
     }
-      console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
-
     res.redirect('./' + nextQ)
   }
 
@@ -310,15 +297,13 @@ router.post('/disability-yes-next-q', function (req, res) {
   else {
      var nextQ
   var thisQ = 'disability'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
       break
     }  
   }
-      console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
-
+ 
     res.redirect('./' + nextQ)
   }
 
@@ -330,14 +315,12 @@ router.post('/disability-details-next-q', function (req, res) {
 
   var nextQ
   var thisQ = 'disability'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
       break
     }  
   }
-      console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
 
     res.redirect('./' + nextQ)
 
@@ -349,15 +332,12 @@ router.post('/pregnancy-next-q', function (req, res) {
 
   var nextQ
   var thisQ = 'pregnancy'
-    console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
   for (var i = 0; i < questionOrder.length; i++) {
      if (questionOrder[i] == thisQ) {
       nextQ = questionOrder[i + 1]
       break
     }  
   }
-      console.log ('thisQ ' + thisQ + ' next q ' + nextQ)
-
     res.redirect('./' + nextQ)
 
 })
