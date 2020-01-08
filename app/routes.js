@@ -13,11 +13,11 @@ var urlQueryUserType
 
 
 router.get('/introduction', function(req, res) {
-var userTypeQueryString = req.query.userType
+var userTypeInput = req.query.userType || req.app.locals.serviceUserTypeA
 
-// JHS 211109 set user action based on userType
+// JHS 211109 set user action based on userType passed in 
 
-  switch (userTypeQueryString) {
+  switch (userTypeInput) {
       case 'applicant':
         serviceUserAction = 'application'
         break
