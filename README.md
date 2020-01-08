@@ -1,7 +1,10 @@
 # hmcts-pcq-prototype-master #
-These are the protected characteristics questions (PCQs) to be integrated into other services
+These are the protected characteristics questions (PCQs) to be integrated into other HMCTS services
 
 This project is designed to be called from other hmcts services prototypes to determine where to collect the user's protected characteristics.
+
+## Documentation ##
+The project and planning documents are held on Confluence [Confluence](https://tools.hmcts.net/confluence/display/CD/Protected+Characteristics+Questions)
 
 ## Question order ##
 
