@@ -14,6 +14,12 @@ var urlQueryUserType
 
 router.get('/introduction', function(req, res) {
 var userTypeInput = req.query.userType || req.app.locals.serviceUserTypeA
+var typeuserTypeInput = typeof userTypeInput
+var typereqqueryuserType = typeof req.query.userType
+var typereqapplocalsserviceUserTypeA =typeof req.app.locals.serviceUserTypeA
+console.log('userTypeInput ' + userTypeInput + ' ' + typeuserTypeInput)
+console.log('req.query.userType ' + req.query.userType + ' ' +  typereqqueryuserType)
+console.log('req.app.locals.serviceUserTypeA ' + req.app.locals.serviceUserTypeA + ' ' + typereqapplocalsserviceUserTypeA)
 
 // JHS 211109 set user action based on userType passed in 
 
