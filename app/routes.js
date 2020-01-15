@@ -14,7 +14,7 @@ router.get('/introduction', function(req, res) {
   // if the user tyope is passed as a string query use that otherwise use the env var
   var userTypeInput = req.query.userType || req.app.locals.serviceUserTypeA
 
-  // JHS 211109 set user action based on userType passed in 
+  // JHS 211109 set user action based on the user type passed in 
 
     switch (userTypeInput) {
         case 'applicant':
