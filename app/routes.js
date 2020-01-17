@@ -24,7 +24,7 @@ router.get('/introduction', function(req, res) {
           serviceUserAction = 'appeal'        
           break
         case 'claimant':
-          serviceUserAction = 'application'
+          serviceUserAction = 'claim'
           break
         case 'respondent':
           serviceUserAction = 'response'
