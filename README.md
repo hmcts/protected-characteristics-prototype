@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # hmcts-pcq-prototype-master #
 These are the protected characteristics questions (PCQs) to be integrated into HMCTS services 
 The website is [hmcts-pcq-prototype.herokuapp.com](https://hmcts-pcq-prototype.herokuapp.com/)
@@ -36,6 +35,7 @@ The serviceUserAction is used to display the action of the user in the informati
 "Your answers won't affect your {{serviceUserAction}}."  This is determined (hard coded with a switch command) in the routes.js file
 applicant - application
 appellant - appeal
+appointee - appeal
 claimant - claim
 respondent - response
 defendant - case
@@ -53,7 +53,3 @@ SERVICE_RETURN_URL_A = service url to return to for user type A
 
 SERVICE_RETURN_URL_B = service url to return to for user type B, leave blank or delete if no second user type
 
-
-=======
-# protected-characteristics-prototypes
->>>>>>> 8e8cd2d94ec41540f487a4c2ba3be7005d6ab754
